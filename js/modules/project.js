@@ -1,28 +1,32 @@
 import {projects} from "../data/projects.js";
-import {episodes} from "../data/episodes.js";
+import {playlists} from "../data/playlists.js";
+import {users} from "../data/users.js";
+
+import {
+
+getEpisodeCount,
+getPublishedCount,
+getProgress
+
+} from "../utils/stats.js";
 
 export function renderProjectList(){
 
 const container=document.querySelector("#projectList");
 
-if(!container)return;
+if(!container) return;
 
 container.innerHTML="";
 
 projects.forEach(project=>{
 
-const projectEpisodes=episodes.filter(e=>e.projectId===project.id);
+const playlist=playlists.find(
+p=>p.id===project.playlistId
+);
 
-const totalEpisode=projectEpisodes.length;
-
-const publishedEpisode=projectEpisodes.filter(
-e=>e.status==="Published"
-).length;
-
-const progress=
-totalEpisode===0
-?0
-:Math.round((publishedEpisode/totalEpisode)*100);
+const owner=users.find(
+u=>u.id===project.ownerId
+);
 
 container.innerHTML+=`
 
@@ -31,6 +35,7 @@ container.innerHTML+=`
 <div class="project-header">
 
 <div class="project-icon"
+
 style="background:${project.color};">
 
 ${project.code}
@@ -55,7 +60,7 @@ Playlist
 
 <br>
 
-<b>${project.playlist}</b>
+<b>${playlist.title}</b>
 
 </div>
 
@@ -65,7 +70,7 @@ Owner
 
 <br>
 
-<b>${project.owner}</b>
+<b>${owner.name}</b>
 
 </div>
 
@@ -73,9 +78,11 @@ Owner
 
 <div class="progress-bar">
 
-<div class="progress-fill"
+<div
 
-style="width:${progress}%;">
+class="progress-fill"
+
+style="width:${getProgress(project.id)}%;">
 
 </div>
 
@@ -85,14 +92,20 @@ style="width:${progress}%;">
 
 <span>
 
-${publishedEpisode}/${totalEpisode}
+${getPublishedCount(project.id)}
+
+/
+
+${getEpisodeCount(project.id)}
 
 Published
 
 </span>
 
 <a
+
 href="episode.html?project=${project.id}"
+
 class="btn-open">
 
 Open
