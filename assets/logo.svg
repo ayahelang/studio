@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 90">
+<defs>
+<linearGradient id="g" x1="0%" x2="100%">
+<stop offset="0%" stop-color="#e11d48"/>
+<stop offset="100%" stop-color="#7c3aed"/>
+</linearGradient>
+</defs>
+
+<rect rx="16" width="72" height="72" fill="url(#g)"/>
+
+<polygon points="26,20 56,36 26,52" fill="white"/>
+
+<text x="90" y="50"
+font-size="34"
+font-family="Segoe UI"
+font-weight="700"
+fill="#ffffff">
+
+SilverTube
+
+</text>
+
+</svg>
