@@ -87,3 +87,55 @@ div.innerHTML=`
 `;
 
 }
+
+import {episodes} from "../data/episodes.js";
+
+const list=document.querySelector("#episodeList");
+
+episodes
+.filter(e=>e.project==id)
+.forEach(ep=>{
+
+list.innerHTML+=`
+
+<div class="episode-row">
+
+<div>
+
+<b>${ep.code}</b>
+
+<br>
+
+${ep.title}
+
+</div>
+
+<div>
+
+${ep.editor}
+
+</div>
+
+<div>
+
+${ep.status}
+
+</div>
+
+<div>
+
+${ep.thumbnail?"🖼":"❌"}
+
+</div>
+
+<button>
+
+Open
+
+</button>
+
+</div>
+
+`;
+
+});
