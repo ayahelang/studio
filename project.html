@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Projects</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/layout.css">
+
+<link rel="stylesheet" href="css/project.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div id="sidebar"></div>
+
+<main class="content">
+
+<div id="navbar"></div>
+
+<h2 style="margin-bottom:25px;">
+
+Projects
+
+</h2>
+
+<div id="projectGrid" class="project-grid">
+
+</div>
+
+</main>
+
+</div>
+
+<script type="module">
+
+import {renderLayout} from "./js/ui.js";
+
+renderLayout("project","Projects");
+
+import {renderProjects} from "./modules/project.js";
+
+renderProjects();
+
+</script>
+
+</body>
+
+</html>
