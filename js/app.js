@@ -1,17 +1,25 @@
-const login=document.getElementById("loginGoogle");
+const demo=document.querySelector("#demoLogin");
 
-const demo=document.getElementById("demoButton");
+if(demo){
 
-login?.addEventListener("click",()=>{
-
-// nanti diganti Google OAuth
+demo.onclick=()=>{
 
 location.href="dashboard.html";
 
-});
+};
 
-demo?.addEventListener("click",()=>{
+}
+
+const google=document.querySelector("#googleLogin");
+
+if(google){
+
+google.onclick=()=>{
+
+alert("Google OAuth akan diaktifkan pada Sprint 2");
 
 location.href="dashboard.html";
 
-});
+};
+
+}
