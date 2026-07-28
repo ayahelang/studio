@@ -2,29 +2,37 @@ export const playlists=[
 
 {
 id:1,
-name:"Web Development",
+channelId:1,
+title:"Web Development",
 description:"Belajar HTML, CSS, JavaScript",
+youtubePlaylistId:"",
 privacy:"Public"
 },
 
 {
 id:2,
-name:"Artificial Intelligence",
+channelId:1,
+title:"Artificial Intelligence",
 description:"AI untuk Guru dan Siswa",
+youtubePlaylistId:"",
 privacy:"Public"
 },
 
 {
 id:3,
-name:"Shorts",
-description:"Konten pendek YouTube Shorts",
+channelId:1,
+title:"YouTube Shorts",
+description:"Konten Shorts",
+youtubePlaylistId:"",
 privacy:"Public"
 },
 
 {
 id:4,
-name:"Tutorial GitHub",
-description:"Git, GitHub, GitHub Pages",
+channelId:1,
+title:"Git & GitHub",
+description:"GitHub Pages dan Git",
+youtubePlaylistId:"",
 privacy:"Public"
 }
 
