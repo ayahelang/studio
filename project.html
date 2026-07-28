@@ -6,13 +6,19 @@
 
 <meta charset="UTF-8">
 
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
 <title>Projects</title>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+href="css/style.css">
 
-<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet"
+href="css/layout.css">
 
-<link rel="stylesheet" href="css/project.css">
+<link rel="stylesheet"
+href="css/project.css">
 
 </head>
 
@@ -20,19 +26,29 @@
 
 <div class="wrapper">
 
-<div id="sidebar"></div>
+<aside
+id="sidebar"
+class="sidebar">
+
+</aside>
 
 <main class="content">
 
-<div id="navbar"></div>
+<header id="navbar">
 
-<h2 style="margin-bottom:25px;">
+</header>
+
+<h1>
 
 Projects
 
-</h2>
+</h1>
 
-<div id="projectGrid" class="project-grid">
+<br>
+
+<div
+id="projectList"
+class="project-grid">
 
 </div>
 
@@ -42,13 +58,20 @@ Projects
 
 <script type="module">
 
-import {renderLayout} from "./js/ui.js";
+import {renderSidebar}
+from "./js/components/sidebar.js";
 
-renderLayout("project","Projects");
+import {renderNavbar}
+from "./js/components/navbar.js";
 
-import {renderProjects} from "./modules/project.js";
+import {renderProjectList}
+from "./js/modules/project.js";
 
-renderProjects();
+renderSidebar();
+
+renderNavbar("Projects");
+
+renderProjectList();
 
 </script>
 
