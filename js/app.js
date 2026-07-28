@@ -1,11 +1,17 @@
-import {APP_NAME,VERSION} from "./config.js";
+const login=document.getElementById("loginGoogle");
 
-window.addEventListener("DOMContentLoaded",()=>{
+const demo=document.getElementById("demoButton");
 
-document.title=APP_NAME;
+login?.addEventListener("click",()=>{
 
-console.log(APP_NAME);
+// nanti diganti Google OAuth
 
-console.log("Version",VERSION);
+location.href="dashboard.html";
+
+});
+
+demo?.addEventListener("click",()=>{
+
+location.href="dashboard.html";
 
 });
