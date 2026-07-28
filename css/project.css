@@ -2,23 +2,23 @@
 
 display:grid;
 
-grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
 
-gap:25px;
+gap:24px;
 
 }
 
 .project-card{
 
-background:#18181b;
+background:#1f1f23;
+
+border:1px solid #303036;
 
 border-radius:18px;
 
-padding:20px;
+padding:22px;
 
 transition:.25s;
-
-border:1px solid #27272a;
 
 }
 
@@ -26,29 +26,27 @@ border:1px solid #27272a;
 
 transform:translateY(-6px);
 
-border-color:#52525b;
-
 }
 
-.project-top{
+.project-header{
 
 display:flex;
 
-gap:15px;
+gap:16px;
 
 align-items:center;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
 .project-icon{
 
-width:55px;
+width:60px;
 
-height:55px;
+height:60px;
 
-border-radius:15px;
+border-radius:16px;
 
 display:flex;
 
@@ -58,13 +56,17 @@ align-items:center;
 
 font-weight:bold;
 
+font-size:20px;
+
 color:white;
 
 }
 
-.project-top p{
+.project-header p{
 
-color:#a1a1aa;
+margin-top:5px;
+
+color:#9ca3af;
 
 font-size:14px;
 
@@ -72,19 +74,39 @@ font-size:14px;
 
 .project-info{
 
-display:flex;
+display:grid;
 
-justify-content:space-between;
+grid-template-columns:1fr 1fr;
 
-font-size:13px;
+margin-bottom:18px;
 
-margin-bottom:15px;
-
-color:#a1a1aa;
+font-size:14px;
 
 }
 
-.project-bottom{
+.progress-bar{
+
+height:8px;
+
+background:#34343c;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-bottom:20px;
+
+}
+
+.progress-fill{
+
+height:100%;
+
+background:#e11d48;
+
+}
+
+.project-footer{
 
 display:flex;
 
@@ -92,18 +114,18 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-top:15px;
-
 }
 
-.project-bottom button{
-
-padding:9px 18px;
+.btn-open{
 
 background:#e11d48;
 
 color:white;
 
+padding:10px 18px;
+
 border-radius:10px;
+
+text-decoration:none;
 
 }
