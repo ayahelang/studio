@@ -1,18 +1,40 @@
-export const APP_NAME="SilverTube Studio";
+export const APP={
 
-export const VERSION="1.0.0";
+name:"SilverTube Studio",
 
-export const PLAYLIST_COLORS={
+version:"1.0",
 
-web:"#3b82f6",
+youtubeApi:"",
 
-ai:"#ef4444",
+supabaseUrl:"",
 
-smm:"#10b981",
+supabaseKey:"",
 
-shorts:"#f59e0b",
+storage:{
 
-project:"#8b5cf6"
+user:"silvertube-user",
+
+setting:"silvertube-setting"
+
+}
+
+};
+
+export const ROLE={
+
+OWNER:1,
+
+SUPERVISOR:2,
+
+SCRIPT:3,
+
+EDITOR:4,
+
+DESIGNER:5,
+
+PUBLISHER:6,
+
+VIEWER:7
 
 };
 
@@ -26,9 +48,7 @@ export const STATUS=[
 
 "Editing",
 
-"Thumbnail",
-
-"Ready",
+"Review",
 
 "Published"
 
