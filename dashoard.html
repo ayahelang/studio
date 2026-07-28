@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 
 <head>
@@ -7,19 +8,16 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Dashboard</title>
+<title>Dashboard - SilverTube Studio</title>
 
 <link rel="stylesheet" href="css/style.css">
-
 <link rel="stylesheet" href="css/layout.css">
-
 <link rel="stylesheet" href="css/dashboard.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -27,73 +25,57 @@
 
 <div class="wrapper">
 
-<aside class="sidebar">
-
-<div class="logo">
-
-Silver<span>Tube</span>
-
-</div>
-
-<nav class="menu">
-
-<a class="active" href="#">🏠 Dashboard</a>
-
-<a href="#">📹 Video</a>
-
-<a href="#">📂 Playlist</a>
-
-<a href="#">🎬 Project</a>
-
-<a href="#">📋 Episode</a>
-
-<a href="#">👥 Team</a>
-
-<a href="#">🏆 Leaderboard</a>
-
-<a href="#">📅 Calendar</a>
-
-<a href="#">📈 Analytics</a>
-
-<a href="#">⚙ Settings</a>
-
-</nav>
-
-</aside>
+<aside class="sidebar" id="sidebar"></aside>
 
 <main class="content">
 
-<div class="topbar">
+<header id="navbar"></header>
 
-<div>
+<section class="stats" id="stats"></section>
 
-<h2>Dashboard</h2>
+<section class="dashboard-body">
 
-<p>Selamat datang kembali.</p>
+<div class="left-column">
+
+<div class="card">
+
+<h2>📂 Active Projects</h2>
+
+<div id="projectList"></div>
 
 </div>
 
-<div class="profile">
+<div class="card">
 
-<img src="assets/avatar.png" class="avatar">
+<h2>🔥 Recent Activities</h2>
 
-<div>
+<div id="activityFeed"></div>
 
-<b>Teddy Mulyana</b>
+</div>
 
-<div class="muted">
+</div>
 
-Owner<body>
+<div class="right-column">
 
-<div class="wrapper">
+<div class="card">
 
-<div id="sidebar"></div>
+<h2>📅 Today's Target</h2>
 
-<main class="content">
+<div id="todayTarget"></div>
 
-<div id="navbar"></div>
+</div>
 
-<!-- isi dashboard -->
+<div class="card">
+
+<h2>🏆 Top Contributors</h2>
+
+<div id="leaderboardMini"></div>
+
+</div>
+
+</div>
+
+</section>
 
 </main>
 
@@ -101,13 +83,17 @@ Owner<body>
 
 <script type="module">
 
-import {renderLayout} from "./js/ui.js";
+import {renderSidebar} from "./js/components/sidebar.js";
+import {renderNavbar} from "./js/components/navbar.js";
+import {renderDashboard} from "./js/modules/dashboard.js";
 
-renderLayout("dashboard","Dashboard");
+renderSidebar();
+
+renderNavbar("Dashboard");
+
+renderDashboard();
 
 </script>
-
-<script type="module" src="js/dashboard.js"></script>
 
 </body>
 
