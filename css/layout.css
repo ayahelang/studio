@@ -1,67 +1,27 @@
-.brand{
+.wrapper{
 
-display:flex;
+display:grid;
 
-align-items:center;
+grid-template-columns:260px 1fr;
 
-gap:15px;
-
-margin-bottom:35px;
+height:100vh;
 
 }
 
-.logo{
+.sidebar{
 
-width:56px;
+background:#141418;
 
-height:56px;
+border-right:1px solid #2f2f36;
 
-border-radius:50%;
-
-background:#e11d48;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:28px;
+overflow:auto;
 
 }
 
-.brand h2{
+.content{
 
-font-size:22px;
+overflow:auto;
 
-}
-
-.brand span{
-
-font-size:13px;
-
-color:#a1a1aa;
-
-}
-
-.sidebar-footer{
-
-position:absolute;
-
-left:20px;
-
-right:20px;
-
-bottom:20px;
-
-}
-
-.version{
-
-font-size:12px;
-
-color:#71717a;
-
-line-height:1.7;
+padding:30px;
 
 }
