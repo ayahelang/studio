@@ -21,7 +21,7 @@ export function getProgress(projectId){
 
 const total=getEpisodeCount(projectId);
 
-if(total===0) return 0;
+if(total===0)return 0;
 
 return Math.round(
 (getPublishedCount(projectId)/total)*100
