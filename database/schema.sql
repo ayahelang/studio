@@ -43,14 +43,6 @@ create table if not exists teams(
     created_at timestamptz default now()
 );
 
-create table if not exists teams(
-    id uuid default gen_random_uuid() primary key,
-    name varchar(100) not null,
-    description text,
-    owner_id uuid references users(id),
-    created_at timestamptz default now()
-);
-
 create table if not exists profiles(
     id uuid primary key references auth.users(id) on delete cascade,
     full_name text not null default '',
@@ -63,3 +55,19 @@ create table if not exists profiles(
     updated_at timestamptz default now()
 );
 
+create table if not exists assignments(
+    id uuid default gen_random_uuid() primary key,
+    project_id uuid not null references projects(id) on delete cascade,
+    episode_id uuid not null references episodes(id) on delete cascade,
+    assignee_id uuid not null references profiles(id) on delete cascade,
+    assigned_by uuid not null references profiles(id),
+    status varchar(20) not null default 'assigned',
+    due_date timestamptz,
+    created_at timestamptz default now()
+);
+
+create index if not exists idx_assignments_assignee
+on assignments(assignee_id);
+
+create index if not exists idx_assignments_project
+on assignments(project_id);
