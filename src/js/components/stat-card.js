@@ -1,12 +1,30 @@
-export default function statCard(title,value,icon,color="var(--primary)"){
-    return`
+export default function statCard(title,value,icon){
+
+    return `
 <div class="stat-card">
-    <div class="stat-icon" style="background:${color}">
+
+    <div class="stat-icon">
+
         ${icon}
+
     </div>
+
     <div class="stat-info">
-        <div class="stat-title">${title}</div>
-        <div class="stat-value">${value}</div>
+
+        <div class="stat-value">
+
+            ${value}
+
+        </div>
+
+        <div class="stat-title">
+
+            ${title}
+
+        </div>
+
     </div>
+
 </div>`;
+
 }
