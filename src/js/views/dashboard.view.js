@@ -1,15 +1,13 @@
-import {createCard} from "../components/card.js";
+import statCard from "../components/stat-card.js";
 
-export function renderDashboard(){
-    return `
-<section class="dashboard-grid">
-    ${createCard("Project","0","📁")}
-    ${createCard("Playlist","0","🎬")}
-    ${createCard("Episode","0","🎥")}
-    ${createCard("Member","0","👥")}
-</section>
-<section class="dashboard-panel">
-    <h2>Activity</h2>
-    <p>Belum ada aktivitas.</p>
-</section>`;
+export function renderDashboard(stats){
+    return`
+<div class="stat-grid">
+    ${statCard("Users",stats.users,"👥","#2563eb")}
+    ${statCard("Playlists",stats.playlists,"🎬","#9333ea")}
+    ${statCard("Projects",stats.projects,"📁","#16a34a")}
+    ${statCard("Episodes",stats.episodes,"🎥","#ea580c")}
+    ${statCard("Uploads",stats.uploads,"📤","#0891b2")}
+    ${statCard("Published",stats.published,"📺","#dc2626")}
+</div>`;
 }
