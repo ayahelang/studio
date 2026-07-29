@@ -1,81 +1,56 @@
-import {SUPABASE_CONFIG}
-from "../config/supabase.config.js";
+import { supabase } from "../config/supabase.config.js";
 
-import {createClient}
-from
-"https://esm.sh/@supabase/supabase-js@2";
+class AuthService {
 
-const supabase=createClient(
+    async loginGoogle() {
 
-SUPABASE_CONFIG.url,
+        const { error } = await supabase.auth.signInWithOAuth({
 
-SUPABASE_CONFIG.anonKey
+            provider: "google",
 
-);
+            options: {
 
-class AuthService{
+                redirectTo:
+                    window.location.origin +
+                    "/src/pages/dashboard.html"
 
-async loginGoogle(){
+            }
 
-const{
+        });
 
-error
+        if (error) {
 
-}=await supabase.auth.signInWithOAuth({
+            console.error(error.message);
 
-provider:"google",
+            alert(error.message);
 
-options:{
+        }
 
-redirectTo:
+    }
 
-window.location.origin+
+    async getSession() {
 
-"/src/pages/dashboard.html"
+        const { data } = await supabase.auth.getSession();
 
-}
+        return data.session;
 
-});
+    }
 
-if(error){
+    async getUser() {
 
-console.error(error);
+        const { data } = await supabase.auth.getUser();
 
-}
+        return data.user;
 
-}
+    }
 
-async restoreSession(){
+    async logout() {
 
-const{
+        await supabase.auth.signOut();
 
-data
+        location.href = "../../index.html";
 
-}=await supabase.auth.getSession();
-
-return data.session;
-
-}
-
-async logout(){
-
-await supabase.auth.signOut();
-
-location.href="/";
-
-}
-
-async currentUser(){
-
-const{
-
-data
-
-}=await supabase.auth.getUser();
-
-return data.user;
-
-}
+    }
 
 }
 
