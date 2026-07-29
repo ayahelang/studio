@@ -238,3 +238,49 @@ alter table episodes
 add column if not exists workflow_status_id smallint
 references workflow_statuses(id);
 
+create table if not exists storage_files(
+    id uuid default gen_random_uuid() primary key,
+    upload_id uuid references uploads(id) on delete cascade,
+    provider varchar(30) default 'supabase',
+    bucket varchar(100),
+    object_path text not null,
+    public_url text,
+    checksum varchar(128),
+    created_at timestamptz default now()
+);
+
+create table if not exists upload_chunks(
+    id uuid default gen_random_uuid() primary key,
+    upload_id uuid references uploads(id) on delete cascade,
+    chunk_number integer not null,
+    chunk_size bigint default 0,
+    uploaded boolean default false,
+    created_at timestamptz default now(),
+    unique(upload_id,chunk_number)
+);
+
+create table if not exists upload_sessions(
+    id uuid default gen_random_uuid() primary key,
+    profile_id uuid references profiles(id),
+    upload_id uuid references uploads(id),
+    started_at timestamptz default now(),
+    finished_at timestamptz,
+    status varchar(20) default 'uploading'
+);
+
+create table if not exists publish_logs(
+    id uuid default gen_random_uuid() primary key,
+    publish_queue_id uuid references publish_queue(id) on delete cascade,
+    status varchar(30),
+    message text,
+    created_at timestamptz default now()
+);
+
+create table if not exists webhook_logs(
+    id uuid default gen_random_uuid() primary key,
+    provider varchar(50),
+    event_name varchar(100),
+    payload jsonb,
+    received_at timestamptz default now()
+);
+
