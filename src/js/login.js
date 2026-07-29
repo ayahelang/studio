@@ -1,9 +1,13 @@
 import AuthService from "./services/auth.service.js";
 
-document
-.getElementById("googleLogin")
-.addEventListener("click",()=>{
+const btn = document.getElementById("googleLogin");
 
-AuthService.loginGoogle();
+btn.addEventListener("click", async () => {
+
+    btn.disabled = true;
+
+    btn.textContent = "Menghubungkan...";
+
+    await AuthService.loginGoogle();
 
 });
