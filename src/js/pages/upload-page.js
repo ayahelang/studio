@@ -36,11 +36,23 @@ zone.ondrop=e=>{
     render(e.dataTransfer.files);
 };
 
-function render(files){
-    [...files].forEach(file=>{
+import {getVideoInfo} from "../utils/video-info.js";
+import videoCard from "../components/video-card.js";
+
+async function render(files){
+
+    for(const file of files){
+
+        const info=await getVideoInfo(file);
+
         list.insertAdjacentHTML(
+
             "beforeend",
-            uploadCard(file)
+
+            videoCard(info)
+
         );
-    });
+
+    }
+
 }
