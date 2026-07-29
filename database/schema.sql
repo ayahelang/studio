@@ -126,3 +126,104 @@ create table if not exists activity_logs(
     description text,
     created_at timestamptz default now()
 );
+
+create table if not exists permissions(
+    id bigint generated always as identity primary key,
+    code varchar(100) unique not null,
+    name varchar(100) not null,
+    description text,
+    created_at timestamptz default now()
+);
+
+create table if not exists role_permissions(
+    role_id bigint references roles(id) on delete cascade,
+    permission_id bigint references permissions(id) on delete cascade,
+    primary key(role_id,permission_id)
+);
+
+create table if not exists project_members(
+    project_id uuid references projects(id) on delete cascade,
+    profile_id uuid references profiles(id) on delete cascade,
+    role_id bigint references roles(id),
+    created_at timestamptz default now(),
+    primary key(project_id,profile_id)
+);
+
+create table if not exists tags(
+    id uuid default gen_random_uuid() primary key,
+    name varchar(100) unique not null,
+    color varchar(20) default '#2563eb',
+    created_at timestamptz default now()
+);
+
+create table if not exists episode_tags(
+    episode_id uuid references episodes(id) on delete cascade,
+    tag_id uuid references tags(id) on delete cascade,
+    primary key(episode_id,tag_id)
+);
+
+create table if not exists comments(
+    id uuid default gen_random_uuid() primary key,
+    episode_id uuid references episodes(id) on delete cascade,
+    profile_id uuid references profiles(id),
+    message text not null,
+    created_at timestamptz default now(),
+    updated_at timestamptz default now()
+);
+
+create table if not exists notifications(
+    id uuid default gen_random_uuid() primary key,
+    profile_id uuid references profiles(id) on delete cascade,
+    title varchar(200),
+    message text,
+    is_read boolean default false,
+    created_at timestamptz default now()
+);
+
+create table if not exists publish_queue(
+    id uuid default gen_random_uuid() primary key,
+    upload_id uuid references uploads(id) on delete cascade,
+    youtube_channel_id uuid references youtube_channels(id),
+    scheduled_at timestamptz,
+    status varchar(20) default 'waiting',
+    retry_count integer default 0,
+    created_at timestamptz default now()
+);
+
+create table if not exists transcoding_jobs(
+    id uuid default gen_random_uuid() primary key,
+    upload_id uuid references uploads(id) on delete cascade,
+    status varchar(20) default 'waiting',
+    progress integer default 0,
+    started_at timestamptz,
+    finished_at timestamptz,
+    created_at timestamptz default now()
+);
+
+create table if not exists invitations(
+    id uuid default gen_random_uuid() primary key,
+    email text not null,
+    invited_by uuid references profiles(id),
+    team_id uuid references teams(id),
+    token text unique,
+    expired_at timestamptz,
+    accepted boolean default false,
+    created_at timestamptz default now()
+);
+
+create table if not exists app_settings(
+    id bigint generated always as identity primary key,
+    setting_key varchar(100) unique,
+    setting_value text,
+    updated_at timestamptz default now()
+);
+
+create table if not exists api_keys(
+    id uuid default gen_random_uuid() primary key,
+    provider varchar(50),
+    key_name varchar(100),
+    encrypted_value text,
+    created_by uuid references profiles(id),
+    created_at timestamptz default now()
+);
+
