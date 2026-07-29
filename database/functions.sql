@@ -13,13 +13,25 @@ begin
     insert into public.profiles(
         id,
         full_name,
-        avatar_url
+        avatar_url,
+        email,
+        role_id,
+        last_login
     )
     values(
         new.id,
-        new.raw_user_meta_data->>'full_name',
-        new.raw_user_meta_data->>'avatar_url'
-    );
+        coalesce(new.raw_user_meta_data->>'full_name',''),
+        new.raw_user_meta_data->>'avatar_url',
+        new.email,
+        5,
+        now()
+    )
+    on conflict(id)
+    do update set
+        full_name=excluded.full_name,
+        avatar_url=excluded.avatar_url,
+        email=excluded.email,
+        last_login=now();
     return new;
 end;
 $$;
