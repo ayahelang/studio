@@ -135,3 +135,39 @@
 .toast.warning{
     background:#f59e0b;
 }
+
+.loader-overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,.65);
+    backdrop-filter:blur(3px);
+    z-index:999999;
+}
+.loader-box{
+    background:#fff;
+    padding:28px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+.loader-spinner{
+    width:46px;
+    height:46px;
+    margin:auto;
+    border:5px solid #ddd;
+    border-top-color:var(--primary);
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+.loader-text{
+    margin-top:14px;
+    font-size:15px;
+}
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
