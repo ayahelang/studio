@@ -25,3 +25,37 @@
     padding:12px;
     border-bottom:1px solid var(--border);
 }
+
+.stat-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+.stat-card{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    background:var(--surface);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+.stat-icon{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    color:#fff;
+    font-size:28px;
+}
+.stat-title{
+    color:var(--text-light);
+    font-size:14px;
+}
+.stat-value{
+    font-size:30px;
+    font-weight:700;
+    margin-top:4px;
+}
