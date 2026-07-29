@@ -1,6 +1,8 @@
 import AuthService from "./services/auth.service.js";
 import renderSidebar from "./layouts/sidebar.js";
 import renderNavbar from "./layouts/navbar.js";
+import renderFooter from "./layouts/footer.js";
+import {renderDashboard} from "./views/dashboard.view.js";
 
 const user=await AuthService.getUser();
 
@@ -10,9 +12,14 @@ if(!user){
 
 document.getElementById("sidebar").innerHTML=renderSidebar();
 document.getElementById("navbar").innerHTML=await renderNavbar();
+document.getElementById("content").innerHTML=renderDashboard();
+document.body.insertAdjacentHTML("beforeend",renderFooter());
 
-document.getElementById("content").innerHTML=`
-<section class="welcome-card">
-    <h1>Halo, ${user.user_metadata.full_name} 👋</h1>
-    <p>Selamat datang di Silverhawk Studio.</p>
-</section>`;
+const logout=document.getElementById("logoutBtn");
+
+if(logout){
+    logout.addEventListener("click",async(e)=>{
+        e.preventDefault();
+        await AuthService.logout();
+    });
+}
