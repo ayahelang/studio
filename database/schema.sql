@@ -227,3 +227,14 @@ create table if not exists api_keys(
     created_at timestamptz default now()
 );
 
+create table if not exists workflow_statuses(
+    id smallint generated always as identity primary key,
+    code varchar(30) unique not null,
+    name varchar(100) not null,
+    sort_order smallint default 0
+);
+
+alter table episodes
+add column if not exists workflow_status_id smallint
+references workflow_statuses(id);
+
