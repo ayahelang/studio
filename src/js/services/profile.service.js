@@ -8,7 +8,17 @@ class ProfileService{
         }
         const {data,error}=await supabase
             .from("profiles")
-            .select("*,roles(name)")
+            .select(`
+                id,
+                full_name,
+                avatar_url,
+                email,
+                role_id,
+                is_active,
+                last_login,
+                created_at,
+                roles(name)
+            `)
             .eq("id",user.id)
             .single();
         if(error){
@@ -16,6 +26,22 @@ class ProfileService{
             return null;
         }
         return data;
+    }
+
+    async update(data){
+        const {data:{user}}=await supabase.auth.getUser();
+        if(!user){
+            return false;
+        }
+        const {error}=await supabase
+            .from("profiles")
+            .update(data)
+            .eq("id",user.id);
+        if(error){
+            console.error(error);
+            return false;
+        }
+        return true;
     }
 }
 
