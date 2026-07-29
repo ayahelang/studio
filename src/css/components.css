@@ -291,3 +291,25 @@
     color:var(--text-light);
     margin:8px 0;
 }
+
+.drop-zone{
+    border:2px dashed #cbd5e1;
+    border-radius:16px;
+    padding:60px 30px;
+    text-align:center;
+    cursor:pointer;
+    transition:.25s;
+    background:#fafafa;
+}
+.drop-zone:hover{
+    border-color:var(--primary);
+    background:#f8fbff;
+}
+.drop-zone.dragover{
+    border-color:var(--primary);
+    background:#eef6ff;
+}
+.drop-zone-icon{
+    font-size:52px;
+    margin-bottom:14px;
+}
