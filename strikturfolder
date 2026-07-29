@@ -1,0 +1,164 @@
+silverhawk-studio/
+│
+├── index.html
+├── README.md
+├── LICENSE
+├── .gitignore
+│
+├── database/
+│   ├── schema.sql
+│   ├── seed.sql
+│   ├── policies.sql
+│   └── functions.sql
+│
+├── docs/
+│   ├── api.md
+│   ├── deployment.md
+│   ├── roadmap.md
+│   └── database.md
+│
+└── src/
+    │
+    ├── assets/
+    │   │
+    │   ├── favicon.png
+    │   ├── logo.svg
+    │   ├── google.svg
+    │   │
+    │   ├── avatar/
+    │   │
+    │   ├── icons/
+    │   │      ├── dashboard.svg
+    │   │      ├── youtube.svg
+    │   │      ├── playlist.svg
+    │   │      ├── project.svg
+    │   │      ├── episode.svg
+    │   │      ├── task.svg
+    │   │      ├── analytics.svg
+    │   │      ├── leaderboard.svg
+    │   │      ├── team.svg
+    │   │      ├── upload.svg
+    │   │      ├── notification.svg
+    │   │      ├── profile.svg
+    │   │      ├── setting.svg
+    │   │      ├── logout.svg
+    │   │      └── google.svg
+    │   │
+    │   ├── illustrations/
+    │   │
+    │   └── thumbnail/
+    │
+    ├── css/
+    │   │
+    │   ├── main.css
+    │   ├── variables.css
+    │   ├── reset.css
+    │   ├── layout.css
+    │   ├── button.css
+    │   ├── form.css
+    │   ├── table.css
+    │   ├── modal.css
+    │   ├── toast.css
+    │   ├── loader.css
+    │   ├── login.css
+    │   ├── dashboard.css
+    │   ├── project.css
+    │   ├── playlist.css
+    │   ├── episode.css
+    │   ├── task.css
+    │   ├── analytics.css
+    │   ├── leaderboard.css
+    │   ├── notification.css
+    │   ├── profile.css
+    │   └── setting.css
+    │
+    ├── pages/
+    │   │
+    │   ├── login.html
+    │   ├── dashboard.html
+    │   ├── channels.html
+    │   ├── playlists.html
+    │   ├── projects.html
+    │   ├── episodes.html
+    │   ├── tasks.html
+    │   ├── analytics.html
+    │   ├── leaderboard.html
+    │   ├── notifications.html
+    │   ├── profile.html
+    │   ├── settings.html
+    │   ├── users.html
+    │   └── roles.html
+    │
+    ├── js/
+    │   │
+    │   ├── main.js
+    │   ├── login.js
+    │   │
+    │   ├── config/
+    │   │      ├── app.config.js
+    │   │      ├── supabase.config.js
+    │   │      └── youtube.config.js
+    │   │
+    │   ├── router/
+    │   │      └── router.js
+    │   │
+    │   ├── layouts/
+    │   │      ├── sidebar.js
+    │   │      ├── navbar.js
+    │   │      └── footer.js
+    │   │
+    │   ├── components/
+    │   │      ├── modal.js
+    │   │      ├── toast.js
+    │   │      ├── loader.js
+    │   │      ├── card.js
+    │   │      ├── table.js
+    │   │      ├── pagination.js
+    │   │      ├── searchbox.js
+    │   │      └── uploader.js
+    │   │
+    │   ├── services/
+    │   │      ├── auth.service.js
+    │   │      ├── user.service.js
+    │   │      ├── channel.service.js
+    │   │      ├── playlist.service.js
+    │   │      ├── project.service.js
+    │   │      ├── episode.service.js
+    │   │      ├── task.service.js
+    │   │      ├── upload.service.js
+    │   │      ├── youtube.service.js
+    │   │      ├── analytics.service.js
+    │   │      └── notification.service.js
+    │   │
+    │   ├── stores/
+    │   │      ├── auth.store.js
+    │   │      ├── app.store.js
+    │   │      └── user.store.js
+    │   │
+    │   ├── models/
+    │   │      ├── user.model.js
+    │   │      ├── project.model.js
+    │   │      ├── playlist.model.js
+    │   │      ├── episode.model.js
+    │   │      └── task.model.js
+    │   │
+    │   ├── utils/
+    │   │      ├── validator.js
+    │   │      ├── formatter.js
+    │   │      ├── storage.js
+    │   │      ├── datetime.js
+    │   │      ├── permission.js
+    │   │      └── helper.js
+    │   │
+    │   └── views/
+    │          ├── dashboard.view.js
+    │          ├── playlist.view.js
+    │          ├── project.view.js
+    │          ├── episode.view.js
+    │          ├── task.view.js
+    │          ├── analytics.view.js
+    │          ├── leaderboard.view.js
+    │          └── profile.view.js
+    │
+    └── vendor/
+        └── supabase.min.js
