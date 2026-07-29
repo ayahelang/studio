@@ -20,3 +20,35 @@ create table if not exists roles(
     description text,
     created_at timestamptz default now()
 );
+
+create table if not exists permissions(
+    id bigint generated always as identity primary key,
+    code varchar(100) unique not null,
+    name varchar(100) not null,
+    description text,
+    created_at timestamptz default now()
+);
+
+create table if not exists role_permissions(
+    role_id bigint not null references roles(id) on delete cascade,
+    permission_id bigint not null references permissions(id) on delete cascade,
+    primary key(role_id,permission_id)
+);
+
+create table if not exists teams(
+    id uuid default gen_random_uuid() primary key,
+    name varchar(100) not null,
+    description text,
+    owner_id uuid references users(id),
+    created_at timestamptz default now()
+);
+
+create table if not exists teams(
+    id uuid default gen_random_uuid() primary key,
+    name varchar(100) not null,
+    description text,
+    owner_id uuid references users(id),
+    created_at timestamptz default now()
+);
+
+
