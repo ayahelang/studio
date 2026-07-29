@@ -372,3 +372,19 @@
     color:var(--text-light);
     margin-top:4px;
 }
+
+.activity-item{
+    background:#fff;
+    padding:16px;
+    margin-top:12px;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+}
+.activity-title{
+    font-weight:600;
+}
+.activity-time{
+    color:var(--text-light);
+    margin-top:6px;
+    font-size:13px;
+}
