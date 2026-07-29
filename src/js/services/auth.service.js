@@ -1,3 +1,9 @@
+import UserService from "./user.service.js";
+import {
+    saveSession,
+    clearSession
+} from "../utils/session.js";
+
 import { supabase } from "../config/supabase.config.js";
 
 class AuthService {
@@ -36,21 +42,31 @@ class AuthService {
 
     }
 
-    async getUser() {
+async getUser(){
 
-        const { data } = await supabase.auth.getUser();
+    const {data}=await supabase.auth.getUser();
 
-        return data.user;
+    if(data.user){
 
-    }
+        saveSession(data.user);
 
-    async logout() {
-
-        await supabase.auth.signOut();
-
-        location.href = "../../index.html";
+        await UserService.saveUser(data.user);
 
     }
+
+    return data.user;
+
+}
+
+async logout(){
+
+    clearSession();
+
+    await supabase.auth.signOut();
+
+    window.location.href="../../index.html";
+
+}
 
 }
 
