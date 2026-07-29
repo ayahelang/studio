@@ -51,4 +51,12 @@ create table if not exists teams(
     created_at timestamptz default now()
 );
 
+create table if not exists profiles(
+    id uuid primary key references auth.users(id) on delete cascade,
+    full_name text,
+    avatar_url text,
+    role_id bigint references roles(id),
+    created_at timestamptz default now(),
+    updated_at timestamptz default now()
+);
 
