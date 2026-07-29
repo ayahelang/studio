@@ -76,3 +76,37 @@
     margin:0;
     font-size:28px;
 }
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+.modal{
+    width:520px;
+    max-width:95%;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+}
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 22px;
+    border-bottom:1px solid var(--border);
+}
+.modal-header button{
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+.modal-body{
+    padding:22px;
+}
