@@ -239,3 +239,27 @@
     object-fit:cover;
     margin:12px 0;
 }
+
+.playlist-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:20px;
+}
+.playlist-card{
+    background:#fff;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+.playlist-card img{
+    width:100%;
+    display:block;
+}
+.playlist-card h3{
+    margin:14px;
+    font-size:18px;
+}
+.playlist-card p{
+    margin:0 14px 18px;
+    color:var(--text-light);
+}
