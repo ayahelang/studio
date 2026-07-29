@@ -44,3 +44,15 @@ values
 ('team.manage','Kelola Tim')
 on conflict(code) do nothing;
 
+insert into workflow_statuses(code,name,sort_order)
+values
+('draft','Draft',1),
+('assigned','Assigned',2),
+('working','Working',3),
+('uploaded','Uploaded',4),
+('review','Under Review',5),
+('revision','Need Revision',6),
+('approved','Approved',7),
+('scheduled','Scheduled',8),
+('published','Published',9)
+on conflict(code) do nothing;
